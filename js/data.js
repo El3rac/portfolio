@@ -82,7 +82,7 @@ const CATEGORIES = [
     name: "Kombo",
     logo: "assets/logo_kombo.jpg",
     channelUrl: "https://www.youtube.com/@Kombo000",
-    description: "Chaîne sur laquelle j'ai travaillé.",
+    description: "Chaîne storytelling autour du Jeu Vidéo.",
     videos: [
       { youtubeId: "wROFZ0JO0Hk" },
       { youtubeId: "vtQM2e3F7aM" },
@@ -92,7 +92,7 @@ const CATEGORIES = [
     name: "Aypierre",
     logo: "assets/logo_aypierre.jpg",
     channelUrl: "https://www.youtube.com/@aypierre",
-    description: "Chaîne sur laquelle j'ai travaillé.",
+    description: "Chaîne de storytelling autour du Jeu Vidéo/Minecraft.",
     videos: [
       { youtubeId: "2XPQnsglBoU" },
       { youtubeId: "bk8wKpToF_0" },
@@ -108,7 +108,7 @@ const CATEGORIES = [
     name: "Melanchromia",
     logo: "assets/logo_melanchromia.jpg",
     channelUrl: "https://www.youtube.com/@Melanchromia",
-    description: "Chaîne sur laquelle j'ai travaillé.",
+    description: "Chaîne qui traite de sujets diverses autour de la peinture.",
     videos: [
       { youtubeId: "o1Py5ZZYgSY" },
     ],
