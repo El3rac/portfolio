@@ -13,7 +13,7 @@ const PROFILE = {
 
   // Réseaux / contact affichés en haut et en bas de page. Ajoute ou supprime des lignes librement.
   socials: [
-    { label: "Email", url: "mailto:elerac.pro@gmail.com" },
+    { label: "Email : elerac.pro@gmail.com", url: "mailto:elerac.pro@gmail.com" },
     { label: "YouTube", url: "https://www.youtube.com/@el3rac" },
     { label: "Instagram", url: "https://www.instagram.com/elerac_yt" },
   ],
