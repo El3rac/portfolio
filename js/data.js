@@ -135,6 +135,7 @@ const CATEGORIES = [
       { youtubeId: "64vZzWZ7xas", roles: ["Script", "Montage", "Voix"] },
       { youtubeId: "_Hf_5in2zIk", roles: ["Script", "Montage", "Voix"] },
       { youtubeId: "UZ1ZXpc_VTw", roles: ["Script", "Montage", "Voix"] }, // Le Plus Grand Plot Twist Du Cinéma (Incendies)
+      { youtubeId: "HXczetdOJsw", roles: ["Script", "Montage", "Voix"] }, // Quand le film spoil sa propre fin
     ],
   },
 ];
