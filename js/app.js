@@ -71,12 +71,26 @@
     return `<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.6 15.6A9 9 0 1 1 8.4 3.4a7 7 0 0 0 12.2 12.2Z"/></svg>`;
   }
 
+  // En thème clair, le logo (PROFILE.avatar) est remplacé par sa version inversée
+  // (PROFILE.avatarLight), partout où il apparaît : accueil, carrousel, page Projets.
+  function applyThemeLogos() {
+    if (!PROFILE.avatar || !PROFILE.avatarLight) return;
+    const light = document.documentElement.dataset.theme === "light";
+    document.querySelectorAll("img").forEach((img) => {
+      const src = img.getAttribute("src");
+      if (src === PROFILE.avatar || src === PROFILE.avatarLight) {
+        img.setAttribute("src", light ? PROFILE.avatarLight : PROFILE.avatar);
+      }
+    });
+  }
+
   // Clic = passe au thème inverse. L'icône affichée est celle du thème vers lequel on bascule.
   function setupThemeToggle() {
     const btn = document.getElementById("theme-toggle");
     const apply = (theme) => {
       document.documentElement.dataset.theme = theme;
       btn.innerHTML = theme === "light" ? moonIcon() : sunIcon();
+      applyThemeLogos();
     };
     apply(localStorage.getItem("theme") === "light" ? "light" : "dark");
 
@@ -857,6 +871,7 @@
     setupRoleFilter();
   }
 
+  applyThemeLogos();
   setupScrollReveal();
   applyFilters();
   fillMissingTitles().then(applyFilters);

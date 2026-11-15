@@ -10,6 +10,9 @@ const PROFILE = {
 
   // Laisse vide "" si tu n'as pas de photo. Sinon mets par ex "assets/avatar.jpg"
   avatar: "assets/logo_elerac.png",
+  // Version du logo affichée en thème clair (partout où "avatar" apparaît sur le site).
+  // Laisse "" pour garder le même logo dans les deux thèmes.
+  avatarLight: "assets/logo_elerac_inverse.webp",
 
   // Réseaux / contact affichés en haut et en bas de page. Ajoute ou supprime des lignes librement.
   socials: [

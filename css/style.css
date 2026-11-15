@@ -3,36 +3,50 @@
    pour changer toute l'identité visuelle du site.
    ========================================================= */
 :root{
-  --bg: #0a0d12;
-  --bg-rgb: 10,13,18;
-  --bg-soft: #12161d;
-  --card: #131820;
-  --border: #212936;
-  --text: #eef1f5;
-  --text-dim: #8b93a2;
+  --bg: #0b0b0b;
+  --bg-rgb: 11,11,11;
+  --bg-soft: #151515;
+  --card: #121212;
+  --border: #272727;
+  --text: #ecebe6;
+  --text-dim: #8f8d87;
   --accent: #d9a441;
   --accent-rgb: 217,164,65;
   --accent-2: #ff5f7e;
   --radius: 14px;
   --max-width: 1120px;
   --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+  /* Texture "toile" de la bannière : trame fine + grain + vignettage */
+  --weave: rgba(255,255,255,0.03);
+  --vignette: rgba(0,0,0,0.7);
+  --skeleton-hi: #2b2b2b;
 }
 
 :root[data-theme="light"]{
-  --bg: #f6f6fb;
-  --bg-rgb: 246,246,251;
-  --bg-soft: #ffffff;
-  --card: #ffffff;
-  --border: #e5e5ee;
-  --text: #14141c;
-  --text-dim: #6b6c7a;
+  /* Thème clair = le logo de la chaîne : toile blanc cassé, symbole noir */
+  --bg: #e8e7e2;
+  --bg-rgb: 232,231,226;
+  --bg-soft: #f2f1ec;
+  --card: #f6f5f1;
+  --border: #c9c7bf;
+  --text: #111111;
+  --text-dim: #5e5c56;
+  --weave: rgba(0,0,0,0.045);
+  --vignette: rgba(0,0,0,0.10);
+  --skeleton-hi: #e2e1dc;
 }
 
 *{ box-sizing: border-box; }
 html{ scroll-behavior: smooth; }
 body{
   margin: 0;
-  background: var(--bg);
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(ellipse 120% 90% at 50% 40%, transparent 40%, var(--vignette) 100%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    repeating-linear-gradient(0deg, var(--weave) 0 1px, transparent 1px 4px),
+    repeating-linear-gradient(90deg, var(--weave) 0 1px, transparent 1px 4px);
+  background-attachment: fixed;
   color: var(--text);
   font-family: var(--font);
   line-height: 1.5;
@@ -107,7 +121,11 @@ a{ color: inherit; text-decoration: none; }
   gap: 20px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  padding: 4px 4px 12px;
+  /* Marge intérieure généreuse (compensée par une marge négative) : le défilement
+     horizontal rogne tout ce qui dépasse, l'ombre dorée au survol était coupée net. */
+  padding: 14px 14px 48px;
+  margin: -10px -14px -36px;
+  scroll-padding-inline: 14px;
   scrollbar-width: none;
 }
 .client-carousel::-webkit-scrollbar{ display: none; }
@@ -166,7 +184,7 @@ a{ color: inherit; text-decoration: none; }
   display: inline-block;
   font-size: 0.92rem;
   font-weight: 600;
-  color: #fff;
+  color: #0b0b0b;
   background: var(--accent);
   padding: 12px 28px;
   border-radius: 999px;
@@ -331,7 +349,7 @@ a{ color: inherit; text-decoration: none; }
 }
 .filter-pill:hover{ color: var(--text); border-color: var(--accent); }
 .filter-pill.active{
-  color: #fff;
+  color: #0b0b0b;
   background: var(--accent);
   border-color: var(--accent);
 }
@@ -443,7 +461,7 @@ a{ color: inherit; text-decoration: none; }
   position: absolute;
   left: 8px; top: 8px;
   background: var(--accent);
-  color: #fff;
+  color: #0b0b0b;
   font-size: 0.68rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -470,6 +488,8 @@ a{ color: inherit; text-decoration: none; }
 .role-badge.role-montage{ background: rgba(201,204,209,0.12); color: #c9ccd1; border: 1px solid rgba(201,204,209,0.35); }
 .role-badge.role-realisation{ background: rgba(201,112,74,0.16); color: #c9704a; border: 1px solid rgba(201,112,74,0.4); }
 .role-badge.role-voix{ background: rgba(154,106,63,0.18); color: #b58057; border: 1px solid rgba(154,106,63,0.45); }
+/* En thème clair, l'argent du badge Montage était illisible sur fond blanc : version plus foncée */
+:root[data-theme="light"] .role-badge.role-montage{ color: #5f636a; background: rgba(95,99,106,0.10); border-color: rgba(95,99,106,0.35); }
 .video-title{
   font-size: 0.95rem;
   font-weight: 600;
@@ -532,7 +552,7 @@ a{ color: inherit; text-decoration: none; }
 }
 .ticket.skeleton-ticket{
   border-style: solid; border-color: transparent;
-  background: linear-gradient(90deg, var(--border) 25%, #2a2c38 37%, var(--border) 63%);
+  background: linear-gradient(90deg, var(--border) 25%, var(--skeleton-hi) 37%, var(--border) 63%);
   background-size: 400% 100%;
   animation: shimmer 1.4s ease infinite;
   min-width: 52px; min-height: 30px;
@@ -714,7 +734,7 @@ a{ color: inherit; text-decoration: none; }
 .skeleton-text{
   display: inline-block;
   border-radius: 4px;
-  background: linear-gradient(90deg, var(--border) 25%, #2a2c38 37%, var(--border) 63%);
+  background: linear-gradient(90deg, var(--border) 25%, var(--skeleton-hi) 37%, var(--border) 63%);
   background-size: 400% 100%;
   animation: shimmer 1.4s ease infinite;
   color: transparent;
