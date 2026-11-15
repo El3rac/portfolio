@@ -99,6 +99,15 @@ const CATEGORIES = [
     ],
   },
   {
+    name: "Mickael Wu",
+    logo: "assets/logo_mickaelwu.jpg",
+    channelUrl: "https://www.youtube.com/@mickaelwu",
+    description: "Chaîne autour du business et de l'entrepreneuriat.",
+    videos: [
+      { youtubeId: "zJiJpk_KDA0", roles: ["Script"] }, // 7 jours pour faire 5k (Mattéo)
+    ],
+  },
+  {
     name: "Elerac",
     logo: "assets/logo_elerac.png", // ex: "assets/client1.jpg", ou laisse vide
     channelUrl: "https://www.youtube.com/@el3rac",
